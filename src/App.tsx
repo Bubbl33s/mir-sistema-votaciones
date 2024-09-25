@@ -15,7 +15,7 @@ function App() {
           <div className="flex gap-5">
             <Filtro />
             <div className="flex-grow flex flex-col gap-5">
-              <TotalAbsoluto cantidad={100} />
+              <TotalAbsoluto />
               <TotalIndividual />
             </div>
           </div>

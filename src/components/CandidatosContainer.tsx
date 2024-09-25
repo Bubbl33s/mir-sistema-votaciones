@@ -7,7 +7,7 @@ export default function CandidatosContainer() {
   return (
     <section className="flex justify-center gap-8">
       {state.candidatos.map((c) => (
-        <Candidato key={c.id} name={c.nombre} img={c.imagen} />
+        <Candidato key={c.id} candidato={c} />
       ))}
     </section>
   );
