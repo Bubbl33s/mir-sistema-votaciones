@@ -6,9 +6,9 @@ type CandidatoProps = {
 export default function Candidato({ name, img }: CandidatoProps) {
   return (
     <div className="flex flex-col items-center max-w-40">
-      <div className="relative mb-3 w-40 overflow-hidden">
+      <div className="relative mb-3 w-40 h-40 overflow-hidden">
         <img
-          className="h-40"
+          className="w-full"
           src={img ? img : "/default-profile.webp"}
           alt={img ? name : "No hay imagen del candidato"}
         />
@@ -17,7 +17,7 @@ export default function Candidato({ name, img }: CandidatoProps) {
         </button>
       </div>
 
-      <p className="text-center h-12">{name}</p>
+      <p className="text-center h-12 w-5/6">{name}</p>
     </div>
   );
 }
