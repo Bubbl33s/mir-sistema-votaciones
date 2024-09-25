@@ -1,6 +1,7 @@
 export type Candidato = {
-  id: number;
+  id: string;
   nombre: string;
   imagen?: string;
   votos: number;
+  checked: boolean;
 };

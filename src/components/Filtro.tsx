@@ -2,7 +2,25 @@ import { Switch, Checkbox } from "../components";
 import { useVotos } from "../hooks/useVotos";
 
 export default function Filtro() {
-  const { dispatch } = useVotos();
+  const { state, dispatch } = useVotos();
+
+  const handleAllChkChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const isChecked = e.target.checked;
+
+    if (isChecked) {
+      dispatch({ type: "check-all" });
+      e.target.disabled = true;
+    }
+  };
+
+  const handleCandidatoChkChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const isChecked = e.target.checked;
+    const candidatoId = e.target.id.split("-")[2];
+
+    dispatch({ type: "check-candidato", payload: { candidatoId, isChecked } });
+  };
 
   return (
     <aside className="border rounded-lg w-fit p-4">
@@ -12,22 +30,30 @@ export default function Filtro() {
         onChangeHandler={() => dispatch({ type: "toggle-porcentaje" })}
       />
 
-      <ul className="w-48 text-sm font-medium border border-gray-200 rounded-lg">
+      <ul className="w-fit text-sm font-medium border border-gray-200 rounded-lg">
         <li className="w-full border-b border-gray-200 rounded-t-lg">
-          <Checkbox text="Todos" />
+          <Checkbox
+            text="Todos"
+            id="chk-todos"
+            name="todos"
+            onChangeHandler={handleAllChkChange}
+          />
         </li>
-        <li className="w-full border-b border-gray-200 rounded-t-lg">
-          <Checkbox text="Candidato 1" />
-        </li>
-        <li className="w-full border-b border-gray-200 rounded-t-lg">
-          <Checkbox text="Candidato 2" />
-        </li>
-        <li className="w-full border-b border-gray-200 rounded-t-lg">
-          <Checkbox text="Candidato 3" />
-        </li>
-        <li className="w-full border-b border-gray-200 rounded-t-lg">
-          <Checkbox text="Candidato 4" />
-        </li>
+
+        {state.candidatos.map((c) => (
+          <li
+            key={c.id}
+            className="w-full border-b border-gray-200 rounded-t-lg"
+          >
+            <Checkbox
+              text={c.nombre}
+              id={`chk-candidato-${c.id}`}
+              name={`candidato-${c.id}`}
+              checked={c.checked}
+              onChangeHandler={handleCandidatoChkChange}
+            />
+          </li>
+        ))}
       </ul>
     </aside>
   );
