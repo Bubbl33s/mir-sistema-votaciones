@@ -2,7 +2,8 @@ type CheckboxProps = {
   text: string;
   id: string;
   name: string;
-  checked?: boolean;
+  checked: boolean;
+  disabled: boolean;
   onChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -11,6 +12,7 @@ export default function Checkbox({
   id,
   name,
   checked,
+  disabled,
   onChangeHandler,
 }: CheckboxProps) {
   return (
@@ -20,10 +22,11 @@ export default function Checkbox({
         type="checkbox"
         name={name}
         checked={checked}
+        disabled={disabled}
         onChange={onChangeHandler}
         className="w-4 h-4 accent-indigo-300 cursor-pointer"
       />
-      <label htmlFor={id} className="w-full py-3 ms-2 text-sm font-medium">
+      <label htmlFor={id} className="w-full py-3 ms-2 text-sm">
         {text}
       </label>
     </div>

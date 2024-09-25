@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <div className="h-screen flex justify-center items-center">
-        <main className="min-w-5xl p-8 border rounded-lg flex flex-col gap-10">
+        <main className="min-w-5xl p-8 border rounded-lg flex flex-col gap-10 font-medium">
           <CandidatosContainer />
 
           <div className="flex gap-5">
