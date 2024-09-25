@@ -6,8 +6,9 @@ type CandidatoProps = {
 export default function Candidato({ name, img }: CandidatoProps) {
   return (
     <div className="flex flex-col items-center max-w-40">
-      <div className="relative mb-3">
+      <div className="relative mb-3 w-40 overflow-hidden">
         <img
+          className="h-40"
           src={img ? img : "/default-profile.webp"}
           alt={img ? name : "No hay imagen del candidato"}
         />
