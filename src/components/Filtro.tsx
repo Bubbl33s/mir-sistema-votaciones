@@ -28,7 +28,7 @@ export default function Filtro() {
   };
 
   return (
-    <aside className="border rounded-lg w-fit p-4 space-y-2">
+    <aside className="border rounded-lg w-fit p-4 space-y-3">
       <h2>Filtrar</h2>
       <Switch
         text="Porcentajes"

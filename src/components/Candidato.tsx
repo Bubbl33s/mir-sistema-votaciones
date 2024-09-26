@@ -19,7 +19,7 @@ export default function Candidato({ candidato }: CandidatoProps) {
           }
         />
         <button
-          className="bg-indigo-300 text-4xl px-2 absolute bottom-0 right-0 hover:bg-indigo-400 hover:text-white rounded-md"
+          className="bg-indigo-300 text-4xl px-2 absolute bottom-0 right-0 hover:bg-indigo-400 hover:text-white rounded-md flex justify-center items-center"
           onClick={() =>
             dispatch({ type: "agregar-voto", payload: { candidato } })
           }
